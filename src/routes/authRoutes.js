@@ -6,16 +6,11 @@ import jwt from 'jsonwebtoken';
 const router = express.Router();
 
 const generateToken = (userId) => {
-    jwt.sign({ id: userId }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN, // Token expiration time
-    }, (err, token) => {
-        if (err) {
-            console.error('Error generating token:', err.message);
-            return null;
-        }
-        return token;
+    return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN,
     });
-}
+};
+
 
 router.post('/register', async(req, res) => {
     // Handle login logic here
