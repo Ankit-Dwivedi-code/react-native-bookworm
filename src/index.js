@@ -1,10 +1,13 @@
 import express from 'express';
 import "dotenv/config";
 import cors from 'cors';
+import job from './lib/cron.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Start the cron job
+job.start();
 app.use(express.json());
 app.use(cors());
 
