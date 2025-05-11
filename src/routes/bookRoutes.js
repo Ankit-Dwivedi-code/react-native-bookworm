@@ -19,15 +19,16 @@ router.post('/', protectRoute , async (req, res) => {
         })
 
         const imageUrl = result.secure_url
-        const newBook = {
-            title,
-            caption,
-            rating,
-            image: imageUrl,
-            user: req.user._id,
-        }
+        const newBook = new Book({
+    title,
+    caption,
+    rating,
+    image: imageUrl,
+    user: req.user._id,
+})
 
-        await newBook.save()
+await newBook.save()
+
         return res.status(201).json({ message: "Book created successfully", book: newBook })
 
 
