@@ -63,6 +63,7 @@ router.post('/register', async(req, res) => {
                 email: newUser.email,
                 username: newUser.username,
                 profileImage: newUser.profileImage,
+                createdAt: newUser.createdAt,
             },
         });
 
@@ -106,6 +107,7 @@ router.post('/login', async(req, res) => {
                 email: user.email,
                 username: user.username,
                 profileImage: user.profileImage,
+                createdAt: user.createdAt,
             },
         });
     }
